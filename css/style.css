@@ -138,7 +138,7 @@ li { margin-bottom: .35rem; }
 
 /* === Game Cards === */
 .game-card-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 10px; margin: 1rem 0;
 }
 .game-card {
@@ -148,14 +148,14 @@ li { margin-bottom: .35rem; }
 }
 .game-card:hover { border-color: var(--border-light); background: var(--bg-hover); }
 .game-card .game-placeholder {
-  width: 184px; height: 69px; flex-shrink: 0; border-radius: 3px;
+  width: 200px; height: 69px; flex-shrink: 0; border-radius: 3px;
   background: var(--bg); border: 1px dashed var(--border);
   display: flex; align-items: center; justify-content: center;
   color: var(--text-dim); font-size: .72rem; text-transform: uppercase;
   letter-spacing: 1px;
 }
 .game-card img {
-  width: 184px; height: 69px; object-fit: cover;
+  width: 200px; height: 69px; object-fit: cover;
   border-radius: 3px; flex-shrink: 0; background: var(--bg);
 }
 .game-card-info { flex: 1; min-width: 0; }
