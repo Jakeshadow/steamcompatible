@@ -113,6 +113,8 @@ function openProtonDB(e) {
   window.open('https://www.protondb.com/explore?selectedFilters=steamLibrary&steamId=' + encodeURIComponent(steamId), '_blank');
 }
 
+function fixBrokenImg(el) { el.outerHTML = '<span class="game-placeholder">Not on Steam</span>'; }
+
 function renderCards(games, containerId) {
   var html = '';
   games.forEach(function(g) {
@@ -120,7 +122,7 @@ function renderCards(games, containerId) {
               : g.status === 'limited' ? '<span class="badge badge-limited">Limited</span>'
               : '<span class="badge badge-works">Works</span>';
     var img = g.appId
-      ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" loading="lazy" onerror="this.outerHTML='<span class=game-placeholder>Not on Steam</span>'">'
+      ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" loading="lazy" onerror="fixBrokenImg(this)">'
       : '<span class="game-placeholder">Not on Steam</span>';
     html += '<div class="game-card">' + img
       + '<div class="game-card-info"><h3>' + g.name + '</h3>'

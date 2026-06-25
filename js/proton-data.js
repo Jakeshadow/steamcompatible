@@ -203,7 +203,7 @@ const ANTI_CHEAT_GAMES = [
   },
   {
     name: "Hades II",
-    appId: 2161740,
+    appId: 1145350,
     status: "works",
     antiCheat: "None",
     reason: "No anti-cheat. Lightweight — runs flawlessly on 8GB VRAM.",
@@ -235,7 +235,7 @@ const ANTI_CHEAT_GAMES = [
   },
   {
     name: "Civilization VII",
-    appId: 289070,
+    appId: 1295660,
     status: "works",
     antiCheat: "None",
     reason: "Linux native. No anti-cheat. Runs on any hardware.",
