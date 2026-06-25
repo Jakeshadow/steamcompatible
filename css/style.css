@@ -1,0 +1,310 @@
+/* === Design Tokens — Steam Dark Theme === */
+:root {
+  --bg: #1b2838;
+  --bg-card: #16202e;
+  --bg-hover: #213043;
+  --bg-input: #1a2636;
+  --accent: #1a9fff;
+  --accent-hover: #47b0ff;
+  --accent-green: #8cbf26;
+  --accent-green-dim: #5c7e10;
+  --text: #c7d5e0;
+  --text-bright: #ffffff;
+  --text-muted: #8b9bb4;
+  --text-dim: #5c6f89;
+  --danger: #e74c3c;
+  --danger-bg: rgba(231, 76, 60, 0.15);
+  --warn: #f39c12;
+  --warn-bg: rgba(243, 156, 18, 0.12);
+  --ok: #2ecc71;
+  --ok-bg: rgba(46, 204, 113, 0.12);
+  --border: #2a3f5a;
+  --border-light: #344b6c;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --max-w: 960px;
+  --font: Arial, Helvetica, sans-serif;
+  --font-display: 'Motiva Sans', Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+
+body {
+  font-family: var(--font);
+  font-size: 15px; line-height: 1.6;
+  color: var(--text); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Nav === */
+.nav {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+  height: 56px; display: flex; align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo {
+  font-weight: 700; font-size: 1.1rem; color: var(--text-bright);
+  text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 8px;
+}
+.nav-logo svg { width: 24px; height: 24px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; list-style: none; gap: 2px; align-items: center; }
+.nav-links a {
+  display: block; padding: 6px 12px; font-size: 13px; color: var(--text-muted);
+  text-decoration: none; border-radius: var(--radius); transition: color 0.15s, background 0.15s;
+}
+.nav-links a:hover { color: var(--text-bright); background: var(--bg-hover); }
+.nav-links a.current { color: var(--accent); font-weight: 600; }
+
+/* === Main === */
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* === Hero === */
+.hero {
+  padding: 3rem 0 2rem; text-align: center;
+  border-bottom: 2px solid var(--border); margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: clamp(24px, 3.5vw, 2rem); font-weight: 700;
+  color: var(--text-bright); margin-bottom: 0.6rem; line-height: 1.3;
+}
+.hero-sub {
+  color: var(--text-muted); font-size: 1rem; line-height: 1.6;
+  max-width: 560px; margin: 0 auto;
+}
+
+/* === Steam ID Input === */
+.steam-input-wrap {
+  display: flex; gap: 8px; max-width: 520px; margin: 1.5rem auto 0;
+  align-items: center;
+}
+.steam-input {
+  flex: 1; padding: 11px 16px; border-radius: var(--radius);
+  background: var(--bg-input); border: 2px solid var(--border);
+  color: var(--text-bright); font-size: .95rem; font-family: var(--font);
+  outline: none; transition: border-color 0.2s;
+}
+.steam-input:focus { border-color: var(--accent); }
+.steam-input::placeholder { color: var(--text-dim); }
+.btn-steam {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent), #1589d6);
+  color: #fff; font-size: .9rem; font-weight: 600; font-family: var(--font);
+  text-decoration: none; border: none; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s; white-space: nowrap;
+}
+.btn-steam:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26, 159, 255, 0.3); color: #fff; text-decoration: none; }
+.btn-steam:active { transform: translateY(0); }
+
+/* How to find Steam ID toggle */
+.steam-id-help {
+  margin-top: .8rem; font-size: .82rem; color: var(--text-muted);
+}
+.steam-id-help summary { cursor: pointer; color: var(--accent); display: inline; }
+.steam-id-help summary:hover { color: var(--accent-hover); }
+.steam-id-help .help-content {
+  margin-top: .8rem; text-align: left; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 1rem 1.2rem; max-width: 480px; margin-left: auto; margin-right: auto;
+  font-size: .85rem; line-height: 1.8;
+}
+.steam-id-help .help-content code {
+  background: var(--bg); padding: 2px 6px; border-radius: 3px;
+  color: var(--accent); font-size: .82rem;
+}
+
+/* === Section === */
+section { padding: 1.5rem 0; }
+
+/* === Headings === */
+h2 {
+  font-size: 1.3rem; font-weight: 700; color: var(--text-bright);
+  margin: 1.8rem 0 .8rem; padding-bottom: .5rem;
+  border-bottom: 2px solid var(--border);
+}
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-bright); margin: 1.2rem 0 .5rem; }
+h4 { font-size: .95rem; color: var(--text-muted); margin: 1rem 0 .4rem; }
+p { margin-bottom: .8rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+ul, ol { margin: .5rem 0 1rem 1.5rem; }
+li { margin-bottom: .35rem; }
+
+/* === Game Cards === */
+.game-card-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px; margin: 1rem 0;
+}
+.game-card {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 10px; transition: border-color 0.15s, background 0.15s;
+}
+.game-card:hover { border-color: var(--border-light); background: var(--bg-hover); }
+.game-card img {
+  width: 184px; height: 69px; object-fit: cover;
+  border-radius: 3px; flex-shrink: 0; background: var(--bg);
+}
+.game-card-info { flex: 1; min-width: 0; }
+.game-card-info h3 { font-size: .9rem; font-weight: 600; margin: 0 0 4px; color: var(--text-bright); }
+.game-card-info .reason { font-size: .78rem; color: var(--text-muted); line-height: 1.4; }
+
+/* === Status Badges === */
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 3px;
+  font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+}
+.badge-blocked { background: var(--danger-bg); color: var(--danger); }
+.badge-works { background: var(--ok-bg); color: var(--ok); }
+.badge-limited { background: var(--warn-bg); color: var(--warn); }
+
+/* === Tables === */
+table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0;
+  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  font-size: .88rem;
+}
+thead { background: var(--bg-card); }
+th {
+  padding: .7rem .8rem; text-align: left; font-weight: 600;
+  color: var(--text-muted); text-transform: uppercase; font-size: .75rem;
+  letter-spacing: .5px; border-bottom: 2px solid var(--border);
+}
+td { padding: .6rem .8rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+tbody tr:hover { background: var(--bg-hover); }
+tr:last-child td { border-bottom: none; }
+.table-thumb {
+  width: 120px; height: 45px; object-fit: cover; border-radius: 3px;
+  background: var(--bg); display: block;
+}
+
+/* === Details / FAQ === */
+details {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); margin-bottom: .5rem;
+}
+details summary {
+  padding: .8rem 1rem; cursor: pointer; font-weight: 600;
+  color: var(--text-bright); list-style: none; font-size: .93rem;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▸"; margin-right: .6rem; color: var(--accent); font-size: .8rem; }
+details[open] summary::before { content: "▾"; }
+details[open] { border-color: var(--accent); }
+details .answer {
+  padding: 0 1rem 1rem 2.2rem; color: var(--text-muted); font-size: .9rem; line-height: 1.7;
+}
+
+/* === Callouts === */
+.callout {
+  background: var(--bg-card); border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1rem 1.2rem; margin: 1rem 0; font-size: .9rem;
+}
+.callout.warn { border-left-color: var(--warn); }
+.callout.ok { border-left-color: var(--ok); }
+.callout.danger { border-left-color: var(--danger); }
+
+/* === Buttons === */
+.btn { display: inline-block; padding: 8px 18px; border-radius: var(--radius); font-size: .85rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; font-family: var(--font); }
+.btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--accent); }
+
+/* === Comparison Table === */
+.compare-table { width: 100%; }
+.compare-table th:first-child { width: 30%; }
+.compare-table .buy-col { background: rgba(26, 159, 255, 0.05); }
+.compare-table .build-col { background: rgba(140, 191, 38, 0.05); }
+
+/* === Budget Calculator === */
+.calculator {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem; margin: 1.5rem 0;
+}
+.calculator label { display: block; font-weight: 600; margin-bottom: .5rem; color: var(--text-bright); }
+.calculator select, .calculator input[type=range] { width: 100%; margin-bottom: 1rem; }
+.calculator select {
+  padding: 8px 12px; background: var(--bg-input); border: 1px solid var(--border);
+  color: var(--text-bright); border-radius: var(--radius); font-size: .9rem; font-family: var(--font);
+}
+.calculator input[type=range] {
+  -webkit-appearance: none; appearance: none; height: 6px;
+  background: var(--border); border-radius: 3px; outline: none;
+}
+.calculator input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 18px; height: 18px;
+  background: var(--accent); border-radius: 50%; cursor: pointer;
+}
+.calc-output {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem; margin-top: 1rem;
+}
+.calc-output h4 { color: var(--accent-green); margin: 0 0 .5rem; }
+.calc-output .spec { display: inline-block; margin: 0 1rem .3rem 0; font-size: .9rem; }
+.calc-output .spec strong { color: var(--text-bright); }
+
+/* === Pre / Code === */
+pre {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: .8rem 1rem;
+  overflow-x: auto; font-size: .82rem; line-height: 1.5; color: var(--text);
+}
+code {
+  background: rgba(255,255,255,0.06); padding: 2px 5px; border-radius: 3px;
+  font-size: .85rem; color: var(--accent);
+}
+pre code { background: none; padding: 0; color: var(--text); }
+
+/* === Footer === */
+.footer {
+  max-width: var(--max-w); margin: 3rem auto 0; padding: 1.5rem 24px;
+  border-top: 1px solid var(--border); text-align: center;
+  color: var(--text-dim); font-size: .82rem;
+}
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--accent); text-decoration: none; }
+
+/* === Explanation Cards === */
+.explain-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px; margin: 1rem 0;
+}
+.explain-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.2rem;
+}
+.explain-card h4 { margin-top: 0; display: flex; align-items: center; gap: 8px; }
+.explain-card p { font-size: .87rem; color: var(--text-muted); margin-bottom: 0; }
+
+/* === Page-specific === */
+.page-hero { padding: 2.5rem 0 2rem; }
+.page-hero h1 { font-size: clamp(22px, 3vw, 1.8rem); font-weight: 700; color: var(--text-bright); margin-bottom: .5rem; }
+.top-link { display: inline-block; margin: 2rem 0 1rem; color: var(--text-muted); font-size: .85rem; }
+.top-link:hover { color: var(--accent); }
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .nav { flex-wrap: wrap; height: auto; padding: .8rem 16px; gap: 8px; }
+  .nav-links { flex-wrap: wrap; gap: 0; }
+  .nav-links a { font-size: 12px; padding: 5px 8px; }
+  .hero { padding: 2rem 0 1.5rem; }
+  .hero h1 { font-size: 1.4rem; }
+  .steam-input-wrap { flex-direction: column; }
+  .game-card-grid { grid-template-columns: 1fr; }
+  .explain-cards { grid-template-columns: 1fr; }
+  table { font-size: .78rem; }
+  th, td { padding: .4rem .5rem; }
+}
+
+@media (max-width: 480px) {
+  main { padding: 0 16px; }
+  .game-card img { width: 120px; height: 45px; }
+  .game-card-info h3 { font-size: .82rem; }
+}
