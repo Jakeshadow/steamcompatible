@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Machine vs Build Your Own PC — Price & Performance Comparison</title>
+<meta name="description" content="Should you buy Steam Machine or build your own Linux gaming PC? Compare price, performance, upgradeability, and use our budget calculator.">
+<meta property="og:title" content="Steam Machine vs Build Your Own PC — Full Comparison">
+<meta property="og:description" content="Buy for $1,049 or build for less? Compare specs, performance, upgrade paths, and use the budget calculator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://steamcompatible.com/build-vs-buy/">
+<meta property="og:site_name" content="Steam Compatible">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Steam Machine vs Build Your Own PC">
+<meta name="twitter:description" content="Build or buy? Compare specs, price, upgradeability. Budget calculator included.">
+<meta property="og:image" content="https://steamcompatible.com/assets/og-image.svg">
+<meta name="twitter:image" content="https://steamcompatible.com/assets/og-image.svg">
+<link rel="canonical" href="https://steamcompatible.com/build-vs-buy/">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 32 32" width="24" height="24"><rect width="32" height="32" rx="6" fill="#1a9fff"/><path d="M16 4L6 9v8c0 5 4 9 10 11 6-2 10-6 10-11V9L16 4z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M13 16l2 2 4-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Steam <span>Compatible</span>
+  </a>
+  <div class="nav-links">
+    <a href="/anti-cheat/">Anti-Cheat List</a>
+    <a href="/vram/">VRAM Guide</a>
+    <a href="/build-vs-buy/" class="current">Build vs Buy</a>
+    <a href="/faq/">FAQ</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="page-hero">
+  <h1>Steam Machine vs Build Your Own: The Real Math</h1>
+  <p class="hero-sub">One costs $1,049 and works out of the box. The other takes an afternoon to build but gives you double the VRAM. Which one wins for you?</p>
+</div>
+
+<section>
+  <h2>Head-to-Head Comparison</h2>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Dimension</th><th class="buy-col">Steam Machine</th><th class="build-col">Self-Built (Bazzite/SteamOS)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Price</strong></td><td>$1,049</td><td>$700 – $1,500 (your choice)</td></tr>
+      <tr><td><strong>GPU VRAM</strong></td><td><span class="badge badge-limited">8GB (soldered)</span></td><td><span class="badge badge-works">12-20GB (upgradeable)</span></td></tr>
+      <tr><td><strong>CPU</strong></td><td>AMD Zen 4 (semi-custom)</td><td>Ryzen 5 7600 – Ryzen 7 7800X3D</td></tr>
+      <tr><td><strong>Storage</strong></td><td>1TB NVMe</td><td>1-2TB NVMe (expandable)</td></tr>
+      <tr><td><strong>OS</strong></td><td>SteamOS (official)</td><td>SteamOS / Bazzite / ChimeraOS</td></tr>
+      <tr><td><strong>Warranty</strong></td><td>Unified (one company)</td><td>Per-component (multiple vendors)</td></tr>
+      <tr><td><strong>Setup time</strong></td><td>Plug in, sign in, play</td><td>2-4 hours build + 1 hour OS install</td></tr>
+      <tr><td><strong>GPU upgradable?</strong></td><td><span class="badge badge-blocked">No (soldered)</span></td><td><span class="badge badge-works">Yes</span></td></tr>
+      <tr><td><strong>Living-room form factor</strong></td><td>Yes, console-sized</td><td>Depends on case choice</td></tr>
+      <tr><td><strong>SteamOS updates</strong></td><td>Automatic from Valve</td><td>Manual (community builds)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Budget Calculator</h2>
+  <p style="color:var(--text-muted);">Pick your region and budget. See what you could build for the same (or less) money.</p>
+
+  <div class="calculator">
+    <label for="region">Region</label>
+    <select id="region" onchange="updateCalc()">
+      <option value="us">United States (USD)</option>
+      <option value="uk">United Kingdom (GBP)</option>
+      <option value="eu">Europe (EUR)</option>
+    </select>
+
+    <label for="budget">Budget: <strong id="budget-label">$800</strong></label>
+    <input type="range" id="budget" min="500" max="1500" value="800" step="50" oninput="updateCalc()">
+
+    <div class="calc-output" id="calc-output"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Who Should Buy the Steam Machine</h2>
+  <ul>
+    <li>You want a console-like experience with PC game prices</li>
+    <li>You've never built a PC and don't want to learn</li>
+    <li>You value unified warranty and support</li>
+    <li>You mostly play indies, older AAA, or competitive games at 1080p/1440p</li>
+    <li>You're fine with the 8GB VRAM ceiling</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Who Should Build Their Own</h2>
+  <ul>
+    <li>You've built a PC before (or are willing to follow a YouTube tutorial)</li>
+    <li>You want 12-16GB+ VRAM for 4K or future-proofing</li>
+    <li>You like upgrading your GPU every 3-4 years</li>
+    <li>You want to choose every component</li>
+    <li>You're comfortable with community-supported SteamOS builds (Bazzite)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Reference Build: MW Technology's $850 Bazzite PC</h2>
+  <p>YouTube channel MW Technology (361K subscribers) documented a self-built Bazzite PC for roughly $850 that outperforms the Steam Machine at 1440p. Specs: RX 7700 XT 12GB, Ryzen 5 7600, 16GB DDR5, 1TB NVMe, Bazzite OS. This build delivers more VRAM and better upgradeability for $200 less — at the cost of an afternoon of assembly and OS installation.</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Prices are estimates based on retail pricing as of June 2026. Actual component prices vary by region and availability. Not affiliated with Valve.</p>
+  <p style="margin-top:.5rem;"><a href="/">Home</a> &middot; <a href="/faq/">FAQ</a></p>
+</footer>
+
+<script src="/js/calculator.js"></script>
+<script>
+function updateCalc() {
+  var region = document.getElementById('region').value;
+  var budget = parseInt(document.getElementById('budget').value);
+  var currency = region === 'us' ? '$' : region === 'uk' ? '£' : '€';
+  document.getElementById('budget-label').textContent = currency + budget;
+
+  var smPrice = STEAM_MACHINE_PRICE[region];
+  var smPriceStr = currency + smPrice;
+  var build = calculateBuild(region, budget);
+  var output = document.getElementById('calc-output');
+
+  var diff = smPrice - budget;
+  var diffStr = diff > 0 ? (currency + diff + ' less than Steam Machine')
+              : diff < 0 ? (currency + Math.abs(diff) + ' more than Steam Machine')
+              : 'Same price as Steam Machine';
+
+  output.innerHTML =
+    '<h4>Your Build at ' + currency + budget + '</h4>'
+    + '<p style="color:var(--text-muted);margin-bottom:.8rem;">' + diffStr + ' (' + smPriceStr + ')</p>'
+    + '<div class="spec"><strong>GPU:</strong> ' + build.gpu + '</div>'
+    + '<div class="spec"><strong>CPU:</strong> ' + build.cpu + '</div>'
+    + '<div class="spec"><strong>RAM:</strong> ' + build.ram + '</div>'
+    + '<div class="spec"><strong>Storage:</strong> ' + build.storage + '</div>'
+    + '<p style="margin-top:.8rem;font-size:.88rem;color:var(--text-muted);">' + build.note + '</p>'
+    + '<p style="margin-top:.8rem;font-size:.85rem;"><strong>Steam Machine:</strong> ' + STEAM_MACHINE_SPEC + '</p>';
+}
+updateCalc();
+</script>
+</body>
+</html>

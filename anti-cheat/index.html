@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Machine Anti-Cheat Blacklist — Games That Don't Work on SteamOS</title>
+<meta name="description" content="Complete list of games blocked by anti-cheat on Steam Machine. Fortnite, Valorant, Destiny 2, COD, Apex Legends — see what works and what never will.">
+<meta property="og:title" content="Steam Machine Anti-Cheat Blacklist — Games Blocked on SteamOS">
+<meta property="og:description" content="220+ tracked anti-cheat games. See which ones run on Steam Machine and which are permanently blocked.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://steamcompatible.com/anti-cheat/">
+<meta property="og:site_name" content="Steam Compatible">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Steam Machine Anti-Cheat Blacklist">
+<meta name="twitter:description" content="Complete list of games blocked by anti-cheat on Steam Machine. Check before you buy.">
+<meta property="og:image" content="https://steamcompatible.com/assets/og-image.svg">
+<meta name="twitter:image" content="https://steamcompatible.com/assets/og-image.svg">
+<link rel="canonical" href="https://steamcompatible.com/anti-cheat/">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 32 32" width="24" height="24"><rect width="32" height="32" rx="6" fill="#1a9fff"/><path d="M16 4L6 9v8c0 5 4 9 10 11 6-2 10-6 10-11V9L16 4z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M13 16l2 2 4-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Steam <span>Compatible</span>
+  </a>
+  <div class="nav-links">
+    <a href="/anti-cheat/" class="current">Anti-Cheat List</a>
+    <a href="/vram/">VRAM Guide</a>
+    <a href="/build-vs-buy/">Build vs Buy</a>
+    <a href="/faq/">FAQ</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="page-hero">
+  <h1>Games Blocked by Anti-Cheat on Steam Machine</h1>
+  <p class="hero-sub">Kernel-level anti-cheat doesn't work through Proton. These games are permanently blocked — no workaround, no Proton trick, no Wine config.</p>
+</div>
+
+<section>
+  <h2>Why Some Games Don't Work</h2>
+  <div class="explain-cards">
+    <div class="explain-card">
+      <h4><span style="color:var(--danger);font-size:1.2rem;">&#9632;</span> Kernel-Level Anti-Cheat</h4>
+      <p>Runs as a Windows kernel driver — has no equivalent in Linux/Proton. <strong>Cannot work.</strong> Includes: Vanguard (Valorant, LoL), Ricochet (COD), Faceit, Nexon Game Security.</p>
+    </div>
+    <div class="explain-card">
+      <h4><span style="color:var(--warn);font-size:1.2rem;">&#9632;</span> EAC / BattlEye — Developer Disabled</h4>
+      <p>Both EAC and BattlEye <em>can</em> support Linux/Proton — but the game developer must flip a switch. Many haven't. These games <strong>could work</strong> if the developer chose to enable it.</p>
+    </div>
+    <div class="explain-card">
+      <h4><span style="color:var(--ok);font-size:1.2rem;">&#9632;</span> EAC / BattlEye — Linux Enabled</h4>
+      <p>Some developers enabled it. Games like Elden Ring, Apex Legends (until Oct 2024) and War Thunder <strong>prove it works</strong>. This is the bright side — more games are enabling Linux support every quarter.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The Full List</h2>
+  <p style="color:var(--text-muted);margin-bottom:1rem;">This list is maintained with data from <a href="https://www.gamingonlinux.com/anticheat/" target="_blank">GamingOnLinux</a> and <a href="https://www.protondb.com/" target="_blank">ProtonDB</a>. Last updated: June 26, 2026.</p>
+
+  <div class="callout danger">
+    <strong>Warning:</strong> Even if a game is marked "Works" today, anti-cheat behavior can change with any patch. Developers can disable Linux support at any time — as EA did with Apex Legends in October 2024.
+  </div>
+
+  <table id="full-table">
+    <thead>
+      <tr>
+        <th>Game</th>
+        <th>Anti-Cheat</th>
+        <th>Status</th>
+        <th>Why</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Will Fortnite Ever Work?</h2>
+  <p>No. Epic Games CEO Tim Sweeney has publicly stated he opposes supporting Linux for competitive games because he believes kernel-level anti-cheat is the only effective approach. Fortnite uses both EAC and BattlEye — but both are configured without Linux support by Epic's choice. Unless Epic's leadership position changes, Fortnite will never run on Steam Machine.</p>
+</section>
+
+<section>
+  <h2>Will Apex Legends Come Back?</h2>
+  <p>Unknown. EA disabled EAC Linux support in October 2024 without explanation. Before that, Apex Legends worked perfectly on Steam Deck and Linux via Proton. The community has been vocal, but EA hasn't responded. If you play Apex, assume it won't work until EA officially announces otherwise.</p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Steam Compatible is an independent community resource. Not affiliated with or endorsed by Valve, Steam, or any game publisher. Compatibility data sourced from <a href="https://www.protondb.com/" target="_blank">ProtonDB</a> and <a href="https://www.gamingonlinux.com/anticheat/" target="_blank">GamingOnLinux</a>.</p>
+  <p style="margin-top:.5rem;"><a href="/">Home</a> &middot; <a href="/faq/">FAQ</a></p>
+</footer>
+
+<script src="/js/proton-data.js"></script>
+<script>
+(function() {
+  var html = '';
+  ANTI_CHEAT_GAMES.forEach(function(g) {
+    var badge = g.status === 'blocked' ? '<span class="badge badge-blocked">Blocked</span>'
+              : g.status === 'limited' ? '<span class="badge badge-limited">Limited</span>'
+              : '<span class="badge badge-works">Works</span>';
+    var cell = g.appId
+      ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" class="table-thumb" loading="lazy" onerror="this.style.display=\'none\'"> <span>' + g.name + '</span>'
+      : '<span>' + g.name + '</span>';
+    html += '<tr><td>' + cell + '</td><td>' + g.antiCheat + '</td><td>' + badge + '</td><td style="color:var(--text-muted);font-size:.85rem;">' + g.reason + '</td></tr>';
+  });
+  document.getElementById('table-body').innerHTML = html;
+})();
+</script>
+</body>
+</html>

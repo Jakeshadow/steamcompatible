@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Machine FAQ — Anti-Cheat, VRAM, Compatibility Questions</title>
+<meta name="description" content="Will Fortnite work on Steam Machine? Is 8GB enough? Can I install Windows? Answers to the most common Steam Machine questions.">
+<meta property="og:title" content="Steam Machine FAQ — Anti-Cheat, VRAM, Compatibility">
+<meta property="og:description" content="Honest answers to the most common Steam Machine questions. Fortnite, Valorant, VRAM, upgradeability, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://steamcompatible.com/faq/">
+<meta property="og:site_name" content="Steam Compatible">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Steam Machine FAQ">
+<meta name="twitter:description" content="Honest answers about Steam Machine compatibility, anti-cheat, VRAM, and more.">
+<meta property="og:image" content="https://steamcompatible.com/assets/og-image.svg">
+<meta name="twitter:image" content="https://steamcompatible.com/assets/og-image.svg">
+<link rel="canonical" href="https://steamcompatible.com/faq/">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 32 32" width="24" height="24"><rect width="32" height="32" rx="6" fill="#1a9fff"/><path d="M16 4L6 9v8c0 5 4 9 10 11 6-2 10-6 10-11V9L16 4z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M13 16l2 2 4-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Steam <span>Compatible</span>
+  </a>
+  <div class="nav-links">
+    <a href="/anti-cheat/">Anti-Cheat List</a>
+    <a href="/vram/">VRAM Guide</a>
+    <a href="/build-vs-buy/">Build vs Buy</a>
+    <a href="/faq/" class="current">FAQ</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="page-hero">
+  <h1>Steam Machine — Frequently Asked Questions</h1>
+  <p class="hero-sub">Honest answers. No Valve marketing. No sugarcoating.</p>
+</div>
+
+<section>
+  <details open>
+    <summary>Will Fortnite run on Steam Machine?</summary>
+    <div class="answer">
+      <p><strong>No.</strong> Fortnite uses Easy Anti-Cheat (EAC) at kernel level, and Epic Games has not enabled Linux/Proton support. Epic CEO Tim Sweeney has publicly opposed Linux gaming support for competitive titles.</p>
+      <p>This is unlikely to change. Fortnite is the single most-requested game for Linux compatibility — and the answer has been "no" for years.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Will Valorant run on Steam Machine?</summary>
+    <div class="answer">
+      <p><strong>No.</strong> Valorant uses Vanguard, Riot's kernel-level anti-cheat driver. Vanguard has no Linux equivalent and Riot has stated they have no plans for Linux support.</p>
+      <p>Valorant is not even on Steam — it uses Riot's own launcher. Between the anti-cheat and the launcher, there is no path to running Valorant on SteamOS.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Is 8GB VRAM really enough?</summary>
+    <div class="answer">
+      <p><strong>At 1080p, yes — for the vast majority of games.</strong> At 1440p, you'll need to drop textures one notch in demanding titles. At 4K with high textures in recent AAA games, no — you'll hit the VRAM ceiling.</p>
+      <p>The bigger issue is 2028 and beyond. Games are trending toward 10-12GB minimum. The GPU is soldered — you can't upgrade. <a href="/vram/">Read the full VRAM guide &#8594;</a></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I bypass anti-cheat to play blocked games?</summary>
+    <div class="answer">
+      <p><strong>No.</strong> There are three levels to this answer:</p>
+      <p><strong>1. Technically impossible:</strong> Kernel-level anti-cheat (Vanguard, Ricochet) requires Windows kernel access. Proton cannot provide this. There is no workaround.</p>
+      <p><strong>2. Risk of ban:</strong> Attempting to bypass anti-cheat — even if technically possible — will get your account banned. Most games with anti-cheat explicitly ban Linux/VM users detected trying to circumvent protections.</p>
+      <p><strong>3. Developer choice:</strong> For EAC and BattlEye games, the anti-cheat <em>can</em> work on Linux — but the developer must enable it. Your best bet is asking the developer to flip the switch, not trying to bypass it.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Does Steam Deck Verified mean it works on Steam Machine?</summary>
+    <div class="answer">
+      <p><strong>Yes.</strong> Steam Machine and Steam Deck run the same SteamOS and the same Proton compatibility layer. Any game with the green "Verified" badge on Steam Deck will work identically on Steam Machine.</p>
+      <p>Games marked "Playable" (yellow) should also work, but may have minor issues. Games marked "Unsupported" are almost certainly broken on Steam Machine too.</p>
+      <p>Use Steam Deck compatibility ratings as a reliable proxy until Steam Machine-specific ratings exist.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I install Windows on Steam Machine?</summary>
+    <div class="answer">
+      <p><strong>Almost certainly yes.</strong> The Steam Machine uses standard AMD x86 hardware. You should be able to wipe SteamOS and install Windows — at which point it becomes a standard gaming PC and anti-cheat games will work.</p>
+      <p>But: you'll lose the console-like SteamOS experience (Big Picture Mode, quick resume, automatic updates), and you'll need to pay for a Windows license. If you plan to run Windows, ask yourself why you're buying a Steam Machine instead of a gaming PC.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I upgrade the GPU later?</summary>
+    <div class="answer">
+      <p><strong>No.</strong> The Steam Machine uses a soldered semi-custom AMD chip. The GPU is not a removable graphics card — it's part of the main board. The 8GB VRAM you buy is the 8GB you're stuck with for the life of the device.</p>
+      <p>This is the single biggest hardware limitation of the Steam Machine. If upgradeability matters to you, <a href="/build-vs-buy/">build your own PC instead &#8594;</a></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How do I actually buy a Steam Machine?</summary>
+    <div class="answer">
+      <p>Valve is using a randomized reservation system. Here's what we know:</p>
+      <ul>
+        <li><strong>Registration:</strong> Through the Steam store. You must have a Steam account in good standing that made at least one purchase before April 2026.</li>
+        <li><strong>Date:</strong> Reservations open June 30, 2026.</li>
+        <li><strong>Price:</strong> $1,049 USD.</li>
+        <li><strong>Lesson from Steam Controller:</strong> The Steam Controller sold out instantly. Bots and scalpers were involved. Valve responded with account restrictions and reservation queues. Expect similar demand for the Steam Machine — don't count on getting one on launch day.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>What's the difference between ProtonDB ratings and this site?</summary>
+    <div class="answer">
+      <p>ProtonDB tells you <strong>how well</strong> a game runs (Platinum/Gold/Silver/Bronze/Borked). We focus on <strong>whether it runs at all</strong> from an anti-cheat perspective. A game can be ProtonDB Platinum (perfect performance) but still blocked because the developer disabled Linux anti-cheat support.</p>
+      <p>Use both: check ProtonDB for general compatibility, and check our <a href="/anti-cheat/">anti-cheat list</a> for competitive games.</p>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Steam Compatible is an independent community resource. Not affiliated with or endorsed by Valve, Steam, or any game publisher.</p>
+  <p style="margin-top:.5rem;"><a href="/">Home</a></p>
+</footer>
+</body>
+</html>
