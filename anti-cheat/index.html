@@ -106,7 +106,7 @@
               : g.status === 'limited' ? '<span class="badge badge-limited">Limited</span>'
               : '<span class="badge badge-works">Works</span>';
     var cell = g.appId
-      ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" class="table-thumb" loading="lazy" onerror="this.style.display='none'"> <span>' + g.name + '</span>'
+      ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" class="table-thumb" loading="lazy" onerror="this.style.display=\'none\'"> <span>' + g.name + '</span>'
       : '<span>' + g.name + '</span>';
     html += '<tr><td>' + cell + '</td><td>' + g.antiCheat + '</td><td>' + badge + '</td><td style="color:var(--text-muted);font-size:.85rem;">' + g.reason + '</td></tr>';
   });
