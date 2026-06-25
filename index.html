@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Machine Compatible Games — Check Your Library Before You Buy</title>
+<meta name="description" content="Which games actually run on Valve's Steam Machine? Check compatibility, see the anti-cheat blacklist, and learn if your library survives the Linux transition.">
+<meta property="og:title" content="Steam Machine Compatible Games — Check Your Library">
+<meta property="og:description" content="Which games run on Steam Machine? Check your Steam library compatibility, see the anti-cheat blacklist, and learn if your games survive.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://steamcompatible.com/">
+<meta property="og:site_name" content="Steam Compatible">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Steam Machine Compatible Games — Check Your Library">
+<meta name="twitter:description" content="Check your Steam library compatibility in 30 seconds. See which games are blocked by anti-cheat.">
+<meta property="og:image" content="https://steamcompatible.com/assets/og-image.svg">
+<meta name="twitter:image" content="https://steamcompatible.com/assets/og-image.svg">
+<link rel="canonical" href="https://steamcompatible.com/">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 32 32" width="24" height="24"><rect width="32" height="32" rx="6" fill="#1a9fff"/><path d="M16 4L6 9v8c0 5 4 9 10 11 6-2 10-6 10-11V9L16 4z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M13 16l2 2 4-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Steam <span>Compatible</span>
+  </a>
+  <div class="nav-links">
+    <a href="/anti-cheat/">Anti-Cheat List</a>
+    <a href="/vram/">VRAM Guide</a>
+    <a href="/build-vs-buy/">Build vs Buy</a>
+    <a href="/faq/">FAQ</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero">
+  <h1>Will Your Games Run on Steam Machine?</h1>
+  <p class="hero-sub">Check your Steam library in 30 seconds. Find out which games are blocked by anti-cheat <strong>before</strong> you spend $1,049.</p>
+
+  <form class="steam-input-wrap" onsubmit="openProtonDB(event)">
+    <input type="text" class="steam-input" id="steam-id" placeholder="Enter your Steam ID or profile URL..." autofocus>
+    <button type="submit" class="btn-steam">Check on ProtonDB &#8599;</button>
+  </form>
+
+  <details class="steam-id-help">
+    <summary>Don't know your Steam ID? Here's how to find it</summary>
+    <div class="help-content">
+      <strong>1.</strong> Open your Steam profile in a browser. The URL looks like:<br>
+      <code>steamcommunity.com/id/yourname</code> or <code>steamcommunity.com/profiles/7656119...</code><br>
+      <strong>2.</strong> Copy the part after <code>/id/</code> (your custom name) or the long number after <code>/profiles/</code> (your Steam ID 64).<br>
+      <strong>3.</strong> Paste it in the box above and hit Enter.<br>
+      <span style="color:var(--text-dim);font-size:.8rem;">We don't store your Steam ID. Your library scan happens on ProtonDB's site.</span>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Games That Will Never Work on Steam Machine</h2>
+  <p style="color:var(--text-muted);margin-bottom:1rem;">Kernel-level anti-cheat blocks these games permanently. No workaround. No Proton trick. <a href="/anti-cheat/">See the full list &#8594;</a></p>
+
+  <div class="game-card-grid" id="blocked-cards"></div>
+</section>
+
+<section>
+  <h2>Games That Work Perfectly</h2>
+  <p style="color:var(--text-muted);margin-bottom:1rem;">EAC/BattlEye with Linux support, or no anti-cheat at all. These prove Steam Machine <em>can</em> game.</p>
+
+  <div class="game-card-grid" id="working-cards"></div>
+</section>
+
+<section>
+  <h2>8GB VRAM: Should You Worry?</h2>
+  <p>Valve says 4K60. Independent testing says 1080p is where 8GB feels safe. At 4K with high textures, you'll hit the VRAM ceiling in demanding games. <a href="/vram/">Read the full VRAM guide &#8594;</a></p>
+  <div class="callout warn">
+    <strong>Bottom line:</strong> 8GB works at 1080p High for most games. Drop textures one notch for 1440p. Don't expect 4K in AAA titles — it's a compromise, not a disaster.
+  </div>
+</section>
+
+<section>
+  <h2>Build or Buy? Quick Comparison</h2>
+  <div class="explain-cards">
+    <div class="explain-card">
+      <h4 style="color:var(--accent);">Buy Steam Machine</h4>
+      <p>$1,049. Plug and play. Unified warranty. SteamOS optimized. Console experience. <strong>GPU soldered — 8GB forever.</strong></p>
+    </div>
+    <div class="explain-card">
+      <h4 style="color:var(--accent-green);">Build Your Own</h4>
+      <p>~$850-1,200. Custom parts. 16GB+ VRAM possible. Full upgradability. Bazzite/SteamOS free. <strong>You assemble and configure it.</strong></p>
+    </div>
+  </div>
+  <p style="margin-top:1rem;"><a href="/build-vs-buy/" class="btn-steam">Use the Build vs Buy Calculator &#8599;</a></p>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Steam Compatible is an independent community resource. Not affiliated with or endorsed by Valve, Steam, or any game publisher.</p>
+  <p style="margin-top:.5rem;">Compatibility data sourced from <a href="https://www.protondb.com/" target="_blank">ProtonDB</a> and <a href="https://www.gamingonlinux.com/anticheat/" target="_blank">GamingOnLinux</a>. Last updated: June 26, 2026.</p>
+</footer>
+
+<script src="/js/proton-data.js"></script>
+<script>
+function openProtonDB(e) {
+  e.preventDefault();
+  var id = document.getElementById('steam-id').value.trim();
+  if (!id) return;
+  // Detect if it's a profile URL and extract the ID portion
+  var match = id.match(/(?:profiles|id)\/([^\/\s]+)/);
+  var steamId = match ? match[1] : id;
+  window.open('https://www.protondb.com/explore?selectedFilters=steamLibrary&steamId=' + encodeURIComponent(steamId), '_blank');
+}
+
+function renderCards(games, containerId) {
+  var html = '';
+  games.forEach(function(g) {
+    var badge = g.status === 'blocked' ? '<span class="badge badge-blocked">Blocked</span>'
+              : g.status === 'limited' ? '<span class="badge badge-limited">Limited</span>'
+              : '<span class="badge badge-works">Works</span>';
+    var img = g.appId
+      ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" loading="lazy" onerror="this.style.display=\'none\'">'
+      : '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 184 69\'%3E%3Crect width=\'184\' height=\'69\' fill=\'%2316202e\'/%3E%3Ctext x=\'92\' y=\'38\' text-anchor=\'middle\' fill=\'%235c6f89\' font-size=\'10\' font-family=\'Arial\'%3ENot on Steam%3C/text%3E%3C/svg%3E" alt="' + g.name + '" style="opacity:.5">';
+    html += '<div class="game-card">' + img
+      + '<div class="game-card-info"><h3>' + g.name + '</h3>'
+      + '<span style="font-size:.75rem;color:var(--text-dim);">' + g.antiCheat + '</span> '
+      + badge
+      + '<div class="reason">' + g.reason + '</div></div></div>';
+  });
+  document.getElementById(containerId).innerHTML = html;
+}
+
+renderCards(TOP_BLOCKED, 'blocked-cards');
+renderCards(TOP_WORKING, 'working-cards');
+</script>
+</body>
+</html>
