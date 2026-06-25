@@ -121,7 +121,7 @@ function renderCards(games, containerId) {
               : '<span class="badge badge-works">Works</span>';
     var img = g.appId
       ? '<img src="' + STEAM_CDN + '/' + g.appId + '/header.jpg" alt="' + g.name + '" loading="lazy" onerror="this.style.display=\'none\'">'
-      : '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 184 69\'%3E%3Crect width=\'184\' height=\'69\' fill=\'%2316202e\'/%3E%3Ctext x=\'92\' y=\'38\' text-anchor=\'middle\' fill=\'%235c6f89\' font-size=\'10\' font-family=\'Arial\'%3ENot on Steam%3C/text%3E%3C/svg%3E" alt="' + g.name + '" style="opacity:.5">';
+      : '<span class="game-placeholder">Not on Steam</span>';
     html += '<div class="game-card">' + img
       + '<div class="game-card-info"><h3>' + g.name + '</h3>'
       + '<span style="font-size:.75rem;color:var(--text-dim);">' + g.antiCheat + '</span> '

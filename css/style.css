@@ -147,6 +147,13 @@ li { margin-bottom: .35rem; }
   border-radius: var(--radius); padding: 10px; transition: border-color 0.15s, background 0.15s;
 }
 .game-card:hover { border-color: var(--border-light); background: var(--bg-hover); }
+.game-card .game-placeholder {
+  width: 184px; height: 69px; flex-shrink: 0; border-radius: 3px;
+  background: var(--bg); border: 1px dashed var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim); font-size: .72rem; text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .game-card img {
   width: 184px; height: 69px; object-fit: cover;
   border-radius: 3px; flex-shrink: 0; background: var(--bg);
