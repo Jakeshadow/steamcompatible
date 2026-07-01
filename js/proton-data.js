@@ -56,9 +56,9 @@ const ANTI_CHEAT_GAMES = [
   {
     name: "PUBG: BATTLEGROUNDS",
     appId: 578080,
-    status: "limited",
+    status: "blocked",
     antiCheat: "BattlEye / Wellbia",
-    reason: "Multiple anti-cheat layers. Works inconsistently — may be blocked patch by patch.",
+    reason: "BattlEye blocks Linux. No online play. Multiple anti-cheat layers.",
     category: "Battle Royale"
   },
   {
@@ -80,9 +80,9 @@ const ANTI_CHEAT_GAMES = [
   {
     name: "Hunt: Showdown 1896",
     appId: 594650,
-    status: "blocked",
+    status: "works",
     antiCheat: "Easy Anti-Cheat (EAC)",
-    reason: "Crytek has not enabled EAC Linux. Blocked since engine update.",
+    reason: "EAC Linux support enabled. Works via Proton.",
     category: "Extraction Shooter"
   },
   {
@@ -96,9 +96,9 @@ const ANTI_CHEAT_GAMES = [
   {
     name: "The Finals",
     appId: 2073850,
-    status: "blocked",
+    status: "works",
     antiCheat: "Easy Anti-Cheat (EAC)",
-    reason: "Embark Studios has not enabled EAC Linux support.",
+    reason: "EAC Linux support enabled. Currently needs Proton Experimental.",
     category: "FPS"
   },
   {
@@ -125,14 +125,31 @@ const ANTI_CHEAT_GAMES = [
     reason: "Vanguard anti-cheat added in 2024. No Linux support. Riot uses kernel-level drivers.",
     category: "MOBA"
   },
+  {
+    name: "Roblox",
+    appId: null,
+    status: "blocked",
+    antiCheat: "Hyperion (Kernel)",
+    reason: "Hyperion is kernel-level anti-cheat. No Linux support. Not on Steam.",
+    category: "Platform"
+  },
 
   // === LIMITED: Works with caveats ===
   {
-    name: "GTA V Online",
+    name: "Delta Force (2024)",
+    appId: 3229960,
+    status: "limited",
+    antiCheat: "Anti-Cheat Expert (ACE)",
+    reason: "Works on Steam Deck / SteamOS only. Desktop Linux blocked.",
+    category: "FPS"
+  },
+
+  {
+    name: "GTA V",
     appId: 271590,
     status: "limited",
     antiCheat: "BattlEye",
-    reason: "BattlEye Linux support is enabled, but Rockstar's launcher requires workarounds.",
+    reason: "Single-player works. Online mode blocked by BattlEye. Rockstar launcher needs workaround on first boot.",
     category: "Open World"
   },
   {
@@ -153,6 +170,14 @@ const ANTI_CHEAT_GAMES = [
   },
 
   // === WORKING: Popular games that prove Steam Machine can game ===
+  {
+    name: "Marvel Rivals",
+    appId: 2767030,
+    status: "works",
+    antiCheat: "NEAC Protect",
+    reason: "Linux support enabled. Desktop needs SteamDeck=1 %command% launch arg.",
+    category: "Hero Shooter"
+  },
   {
     name: "Elden Ring",
     appId: 1245620,
