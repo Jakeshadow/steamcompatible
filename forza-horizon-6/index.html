@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forza Horizon 6 on Steam Machine — What Works, What Doesn't</title>
+<meta name="description" content="Forza Horizon 6 Proton compatibility — severe stuttering, ray tracing crashes, black screen fix. What's broken and what works on Steam Machine / SteamOS.">
+<meta property="og:title" content="Forza Horizon 6 on Steam Machine — Compatibility Report">
+<meta property="og:description" content="Forza Horizon 6 has 327+ Proton bug reports. Here's what's broken, what works, and how to get it running on Steam Machine.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://steamcompatible.com/forza-horizon-6/">
+<meta property="og:site_name" content="Steam Compatible">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forza Horizon 6 on Steam Machine — Compatibility Report">
+<meta name="twitter:description" content="Severe stuttering, RT crashes, black screen. 327+ reports. Workarounds inside.">
+<meta property="og:image" content="https://steamcompatible.com/assets/og-image.svg">
+<meta name="twitter:image" content="https://steamcompatible.com/assets/og-image.svg">
+<link rel="canonical" href="https://steamcompatible.com/forza-horizon-6/">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Forza Horizon 6 on Steam Machine — What Works, What Doesn't (2026)",
+      "description": "Complete Proton compatibility report for Forza Horizon 6 on SteamOS / Steam Machine. Stuttering fixes, ray tracing crash workaround, black screen on startup, and expected performance.",
+      "author": { "@type": "Organization", "name": "Steam Compatible" },
+      "publisher": { "@type": "Organization", "name": "Steam Compatible" },
+      "datePublished": "2026-07-02",
+      "dateModified": "2026-07-02",
+      "about": "Forza Horizon 6 compatibility on Steam Machine and SteamOS via Proton"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://steamcompatible.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Forza Horizon 6 Compatibility", "item": "https://steamcompatible.com/forza-horizon-6/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 32 32" width="24" height="24"><rect width="32" height="32" rx="6" fill="#1a9fff"/><path d="M16 4L6 9v8c0 5 4 9 10 11 6-2 10-6 10-11V9L16 4z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M13 16l2 2 4-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Steam <span>Compatible</span>
+  </a>
+  <div class="nav-links">
+    <a href="/anti-cheat/">Anti-Cheat List</a>
+    <a href="/vram/">VRAM Guide</a>
+    <a href="/build-vs-buy/">Build vs Buy</a>
+    <a href="/faq/">FAQ</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero">
+  <h1>Forza Horizon 6 on Steam Machine</h1>
+  <p class="hero-sub">It doesn't run well — yet. Here's exactly what's broken, what's been fixed, and how to get the best experience possible right now.</p>
+</section>
+
+<section>
+  <p style="color:var(--text-muted);font-size:0.9rem;">Last updated: July 2, 2026 · Based on <a href="https://github.com/ValveSoftware/Proton/issues/9789" target="_blank" rel="noopener">Proton #9789</a> (327+ reports)</p>
+</section>
+
+<section>
+  <h2>Current Status: ⚠️ Playable with Major Issues</h2>
+  <p>Forza Horizon 6 launched as a Steam Day 1 title, but Proton compatibility is rough. After 327+ community reports, the consensus is: you can play it on Steam Machine, but expect stuttering, and don't turn on ray tracing.</p>
+
+  <div class="table-wrap" style="margin-top:20px;">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Status</th><th>Details</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Basic gameplay</strong></td><td><span style="color:#4ade80;">Playable</span></td><td>Runs at 1080p Medium, 45-60 FPS on RX 9070 XT</td></tr>
+        <tr><td><strong>Ray tracing</strong></td><td><span style="color:#ef4444;">Broken</span></td><td>Crashes with GPU error immediately on enable</td></tr>
+        <tr><td><strong>Startup / black screen</strong></td><td><span style="color:#f0c040;">Fixed (Bleeding Edge)</span></td><td>Fixed in Proton Experimental Bleeding Edge 11.0-362204</td></tr>
+        <tr><td><strong>Stuttering</strong></td><td><span style="color:#ef4444;">Severe</span></td><td>World streaming stutters, some invisible in frametime graph</td></tr>
+        <tr><td><strong>Online / multiplayer</strong></td><td><span style="color:#4ade80;">Working</span></td><td>No anti-cheat issues reported. EAC supports Linux</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>What's Broken (And Why)</h2>
+
+  <h3>1. Severe Stuttering — World Streaming</h3>
+  <p>The most reported issue. FH6 streams open-world data aggressively, and Proton's translation layer introduces micro-stutters when loading new regions. Some stutters are visible in the frametime graph (30-50ms spikes), some are invisible — the game freezes for a fraction of a second without the graph registering it. This suggests a synchronization issue between the game's asset pipeline and Proton's D3D12→Vulkan translation.</p>
+  <p><strong>What helps (community confirmed):</strong></p>
+  <ul>
+    <li>Set launch option: <code>DXVK_ASYNC=1 %command%</code> — allows async shader compilation, reducing stutter on first load</li>
+    <li>Reduce World Car Detail to Medium — fewer unique cars to stream in</li>
+    <li>Install on NVMe SSD — SATA SSDs amplify the streaming bottleneck</li>
+  </ul>
+
+  <h3>2. Ray Tracing — Instant GPU Crash</h3>
+  <p>Turning ray tracing on (any setting) causes an immediate GPU hang. The error is a VK_ERROR_DEVICE_LOST — Proton's Vulkan layer loses communication with the GPU. This affects both AMD (RX 6000/7000/9000) and NVIDIA (RTX 3000/4000/5000) GPUs. Valve has not shipped a fix yet.</p>
+  <p><strong>Workaround:</strong> Don't enable ray tracing. FH6's rasterized lighting is still excellent — the visual difference on Medium/High is subtle, and you're losing 30-40% FPS for a feature that crashes.</p>
+
+  <h3>3. Black Screen on Startup — Fixed</h3>
+  <p>Previously the game showed a black screen until you alt-tabbed out and back in. Fixed in Proton Experimental Bleeding Edge (build 11.0-362204, May 15 2026). If you're still seeing this, switch to Bleeding Edge: <code>Proton Experimental → Properties → Betas → bleeding-edge</code>.</p>
+</section>
+
+<section>
+  <h2>Steam Machine Performance Estimates</h2>
+  <p>Steam Machine ships with a custom AMD APU (reportedly ~RX 7700 XT equivalent, 8GB shared VRAM). Based on community RX 9070 XT benchmarks (a faster discrete GPU), here's the projection:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Settings</th><th>RX 9070 XT (Linux)</th><th>Steam Machine (Estimated)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1080p Low</strong></td><td>85-100 FPS</td><td>55-70 FPS</td></tr>
+        <tr><td><strong>1080p Medium</strong></td><td>55-70 FPS</td><td>35-50 FPS</td></tr>
+        <tr><td><strong>1080p High</strong></td><td>40-55 FPS</td><td>25-40 FPS ⚠️</td></tr>
+        <tr><td><strong>1440p Medium</strong></td><td>40-50 FPS</td><td>25-35 FPS ❌</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn" style="margin-top:20px;">
+    <strong>Bottom line:</strong> 1080p Medium is your target. Steam Machine's 8GB VRAM is the bottleneck — FH6 allocates ~6.5GB at 1080p Medium on Windows, and Proton adds 10-15% overhead. You're right at the limit.
+  </div>
+</section>
+
+<section>
+  <h2>How to Get the Best Experience Today</h2>
+  <ol>
+    <li><strong>Switch to Proton Experimental Bleeding Edge</strong> — fixes the black screen and includes latest D3D12 translation improvements</li>
+    <li><strong>Set launch options:</strong> <code>DXVK_ASYNC=1 DXVK_CONFIG="dxvk.numCompilerThreads=4" %command%</code></li>
+    <li><strong>Cap to 1080p Medium</strong> — disable ray tracing, set World Car Detail to Medium, shadows to Low</li>
+    <li><strong>Use Gamescope</strong> for smoother frame pacing: <code>gamescope -w 1920 -h 1080 -f -- %command%</code></li>
+    <li><strong>Install on NVMe</strong> — the world streaming bottleneck is I/O, not GPU</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Will Valve Fix This?</h2>
+  <p>Forza Horizon 6 is a Steam Day 1 launch title with a Steam Machine marketing tie-in. Valve has direct incentive to fix Proton compatibility. The Proton #9789 issue has 327+ community reports and is actively monitored by Valve engineers. The black screen fix in May 2026 proves they're working on it. Ray tracing and stuttering fixes are expected before Steam Machine ships.</p>
+  <p><strong>Track progress:</strong> <a href="https://github.com/ValveSoftware/Proton/issues/9789" target="_blank" rel="noopener">Proton #9789 on GitHub →</a></p>
+</section>
+
+<section>
+  <h2>Related</h2>
+  <p>The anti-cheat blacklist affects FH6 multiplayer. Check if other games in your library are blocked:</p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;">
+    <a href="/anti-cheat/" class="btn-steam">Anti-Cheat Blacklist →</a>
+    <a href="/vram/" class="btn-steam">8GB VRAM: Should You Worry? →</a>
+    <a href="/build-vs-buy/" class="btn-steam">Build vs Buy Calculator →</a>
+  </div>
+</section>
+
+<p style="color:var(--text-muted);font-size:0.85rem;text-align:center;">Last updated: July 2, 2026</p>
+
+</main>
+
+<footer class="footer">
+  <p>Steam Compatible is an independent community resource. Not affiliated with or endorsed by Valve, Steam, Forza, Playground Games, or Xbox Game Studios.</p>
+  <p>Forza Horizon and Forza Horizon 6 are trademarks of Microsoft / Xbox Game Studios.</p>
+</footer>
+
+</body>
+</html>
